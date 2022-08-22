@@ -1,62 +1,62 @@
-local awful = require('awful')
-local wibox = require('wibox')
-local gears = require('gears')
-local clickable_container = require('widget.clickable-container')
-local dpi = require('beautiful').xresources.apply_dpi
-local icons = require('themes.icons')
-local colors = require('themes').colors
-local watch = require('awful.widget.watch')
+local awful = require("awful")
+local wibox = require("wibox")
+local gears = require("gears")
+local clickable_container = require("widget.clickable-container")
+local dpi = require("beautiful").xresources.apply_dpi
+local icons = require("themes.icons")
+local colors = require("themes").colors
+local watch = require("awful.widget.watch")
 
 local box = {}
 
-local signalIcon = wibox.widget {
+local signalIcon = wibox.widget({
 	layout = wibox.layout.align.vertical,
-	expand = 'none',
+	expand = "none",
 	nil,
 	{
-		id = 'icon',
+		id = "icon",
 		image = icons.wifi_2,
 		resize = true,
-		widget = wibox.widget.imagebox
+		widget = wibox.widget.imagebox,
 	},
-	nil
-}
+	nil,
+})
 
-local wifiIcon = wibox.widget {
+local wifiIcon = wibox.widget({
 	{
 		{
 			signalIcon,
 			margins = dpi(7),
-			widget = wibox.container.margin
+			widget = wibox.container.margin,
 		},
 		shape = gears.shape.rect,
 		bg = colors.color4,
-		widget = wibox.container.background
+		widget = wibox.container.background,
 	},
 	forced_width = 40,
 	forced_height = 40,
-	widget = clickable_container
-}
+	widget = clickable_container,
+})
 
-local content = wibox.widget {
+local content = wibox.widget({
 	{
 		{
 			{
 				text = "Searching...",
-				font = 'Inter Bold 10',
+				font = "Inter Bold 10",
 				widget = wibox.widget.textbox,
 			},
 			layout = wibox.layout.align.vertical,
 		},
 		margins = dpi(10),
-		widget = wibox.container.margin
+		widget = wibox.container.margin,
 	},
 	shape = gears.shape.rect,
 	bg = colors.colorB,
-	widget = wibox.container.background
-}
+	widget = wibox.container.background,
+})
 
-box = wibox.widget {
+box = wibox.widget({
 	{
 		wifiIcon,
 		content,
@@ -69,7 +69,7 @@ box = wibox.widget {
 	fg = colors.white,
 	border_width = dpi(1),
 	border_color = colors.colorA,
-	widget = wibox.container.background
-}
+	widget = wibox.container.background,
+})
 
 return box

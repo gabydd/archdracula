@@ -1,5 +1,5 @@
 local settings = require("settings")
 
 return {
-  default = settings.default_programs
+	default = settings.default_programs,
 }

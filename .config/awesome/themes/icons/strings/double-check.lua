@@ -1,5 +1,4 @@
-local svgString = 
-	[[
+local svgString = [[
 <svg
   id="Capa_1" 
   enable-background="new 0 0 512 512" 

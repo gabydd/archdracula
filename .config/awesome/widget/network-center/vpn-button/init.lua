@@ -1,3 +1,3 @@
-local awful = require('awful')
+local awful = require("awful")
 
-return require('widget.control-center.vpn-button')
+return require("widget.control-center.vpn-button")

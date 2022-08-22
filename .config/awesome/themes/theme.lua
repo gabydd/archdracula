@@ -1,13 +1,12 @@
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local colors = require('themes').colors
+local colors = require("themes").colors
 local settings = require("settings")
-
 
 local theme = {}
 
-theme.useless_gap   = dpi(settings.window_gaps)
-theme.border_width  = dpi(settings.window_border_size)
+theme.useless_gap = dpi(settings.window_gaps)
+theme.border_width = dpi(settings.window_border_size)
 
 theme.hotkeys_bg = colors.colorB
 theme.hotkeys_fg = colors.white

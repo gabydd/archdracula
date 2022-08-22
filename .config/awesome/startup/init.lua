@@ -1,2 +1,2 @@
-require('startup.handling')
-require('startup.screen')
+require("startup.handling")
+require("startup.screen")

@@ -1,6 +1,6 @@
-local beautiful = require('beautiful')
-local gears = require('gears')
-local awful = require('awful')
+local beautiful = require("beautiful")
+local gears = require("gears")
+local awful = require("awful")
 local settings = require("settings")
 
 --[[
@@ -19,6 +19,6 @@ awful.screen.connect_for_each_screen(
 )
 ]]
 
-awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/themes/backgrounds/"..settings.background)
+awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/themes/backgrounds/" .. settings.background)
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
