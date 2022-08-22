@@ -135,9 +135,9 @@ local globalKeys = awful.util.table.join(
   	{modkey},
   	"e",
   	function ()
-  		awful.spawn(apps.default.editor)
+  		awful.spawn.with_shell(apps.default.editor)
     end,
-		{description = "Open Atom", group = "Default programs"}
+		{description = "Open nvim", group = "Default programs"}
 	),
 
   awful.key(
@@ -146,7 +146,7 @@ local globalKeys = awful.util.table.join(
   	function ()
   		awful.spawn(apps.default.browser)
     end,
-		{description = "Open Firefox", group = "Default programs"}
+		{description = "Open Chrome", group = "Default programs"}
 	),
 
   awful.key(
@@ -309,7 +309,7 @@ local globalKeys = awful.util.table.join(
   awful.key(
 		{modkey},
 		"v",
-		function() awful.util.spawn("/home/jeremie1001/.config/dmenu/nord-countries.sh") end,
+		function() awful.util.spawn("/home/gaby/.config/dmenu/nord-countries.sh") end,
 		{description = "run dmenu vpn prompt", group = "Launchers"}
 	),
 
@@ -317,7 +317,7 @@ local globalKeys = awful.util.table.join(
   awful.key(
 		{modkey},
 		"p",
-		function() awful.util.spawn("/home/jeremie1001/.config/dmenu/projectFoldersRofi.sh") end,
+		function() awful.util.spawn("/home/gaby/.config/dmenu/projectFoldersRofi.sh") end,
 		{description = "run dmenu projects prompt", group = "Launchers"}
 	),
 

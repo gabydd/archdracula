@@ -5,6 +5,16 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.calendar.calendar.title-text')
+local cal_backward = require('widget.calendar.calendar.backward')
+local cal_reset = require('widget.calendar.calendar.reset')
+local cal_forward = require('widget.calendar.calendar.forward')
+local to_do_title_text = require('widget.calendar.to-do.to-do-title-text')
+local add_icon = require('widget.calendar.to-do.add-icon')
+local calendar_widget = require('widget.calendar.calendar.calendar-widget')
+local cal_to_do_panel = require('widget.calendar.to-do.to-do-panel')
+
 
 --- Build and combine all widgets that go into right side panel
   -- Calendar title
@@ -25,17 +35,17 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.calendar.calendar.title-text'),
+          dracula_icon,
+          title_text,
     		}
       ),
       format_item(
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(3),
-          require('widget.calendar.calendar.backward'),
-          require('widget.calendar.calendar.reset'),
-          require('widget.calendar.calendar.forward'),
+          cal_backward,
+          cal_reset,
+          cal_forward,
     		}
     	),
     },
@@ -65,14 +75,14 @@ local to_do_title = wibox.widget {
         {
           layout = wibox.layout.fixed.horizontal,
           spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.calendar.to-do.to-do-title-text'),
+          dracula_icon,
+          to_do_title_text,
         }
       ),
       format_item(
         {
           layout = wibox.layout.fixed.horizontal,
-          require('widget.calendar.to-do.add-icon'),
+          add_icon,
         }
       ),
     },
@@ -102,7 +112,7 @@ local calendar_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.vertical,
     			spacing = dpi(16),
-          require('widget.calendar.calendar.calendar-widget'),
+          calendar_widget,
     		}
     	),
     },
@@ -131,7 +141,7 @@ local to_do_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.calendar.to-do.to-do-panel'),
+          cal_to_do_panel,
 
     		}
     	),

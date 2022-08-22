@@ -6,6 +6,11 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.network-center.title-text')
+local status_icon = require('widget.network-center.status-icon')
+local status = require('widget.network-center.status')
+local nets_panel = require('widget.network-center.networks-panel')
 
 local width = dpi(410)
 
@@ -18,8 +23,8 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.network-center.title-text'),
+          dracula_icon,
+          title_text,
     		}
     	),
     },
@@ -48,8 +53,8 @@ local status = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-            require('widget.network-center.status-icon'),
-            require('widget.network-center.status'),
+            status_icon,
+            status,
     		}
     	),
     },
@@ -78,7 +83,7 @@ local networks_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.network-center.networks-panel'),
+          nets_panel,
     		}
     	),
     },

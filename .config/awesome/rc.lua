@@ -112,7 +112,8 @@ require('themes')
 --█─▄─█─██─███─████─▄▀███─▄█▀██▄─▄██▄▄▄▄─█
 --█▄█▄█▄▄▄▄██▄▄▄██▄▄█▄▄█▄▄▄▄▄██▄▄▄██▄▄▄▄▄█
 
-_G.root.keys(require('config.keys.global'))
+local globalKeys = require('config.keys.global')
+_G.root.keys(globalKeys)
 
 
 

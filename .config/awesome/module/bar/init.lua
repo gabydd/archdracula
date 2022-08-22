@@ -79,26 +79,29 @@ local bar = function(s)
 	}
 
 	for i,widget in pairs(settings.bar.left) do 
+		local widget_1 =  require('widget.bar.'..widget[1])
 		if widget[1] == "tags" then
-			table.insert(leftBar, require('widget.bar.'..widget[1])(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
+			table.insert(leftBar, widget_1(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
 		else
-			table.insert(leftBar, require('widget.bar.'..widget[1])({color = colors[widget[2]]}, 4, 4))
+			table.insert(leftBar, widget_1({color = colors[widget[2]]}, 4, 4))
 		end
 	end
 
 	for i,widget in pairs(settings.bar.center) do
+		local widget_1 =  require('widget.bar.'..widget[1])
 		if widget[1] == "tags" then
-			table.insert(centerBar, require('widget.bar.'..widget[1])(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
+			table.insert(centerBar, widget_1(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
 		else
-			table.insert(centerBar, require('widget.bar.'..widget[1])({color = colors[widget[2]]}, 4, 4))
+			table.insert(centerBar, widget_1({color = colors[widget[2]]}, 4, 4))
 		end
 	end
 
 	for i,widget in pairs(settings.bar.right) do
+		local widget_1 =  require('widget.bar.'..widget[1])
 		if widget[1] == "tags" then
-			table.insert(rightBar, require('widget.bar.'..widget[1])(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
+			table.insert(rightBar, widget_1(s, colors[widget[2][1]], colors[widget[2][2]], 3, 4, 4))
 		else
-			table.insert(rightBar, require('widget.bar.'..widget[1])({color = colors[widget[2]]}, 4, 4))
+			table.insert(rightBar, widget_1({color = colors[widget[2]]}, 4, 4))
 		end
 	end
 

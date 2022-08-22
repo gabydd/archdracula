@@ -63,7 +63,7 @@ widget:buttons(
 			nil,
 			function()
 				cc_toggle()
-				awful.spawn.with_shell('flameshot screen -c -p /home/jeremie1001/Pictures/screencap -d 50')
+				awful.spawn.with_shell('flameshot screen -c -p /home/gaby/Pictures/screencap -d 50')
 			end
 		)
 	)

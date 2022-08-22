@@ -6,6 +6,10 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.notification-center.title-text')
+local clear_all = require('widget.notification-center.clear-all')
+local notifications_panel = require('widget.notification-center.notifications-panel')
 
 local width = dpi(410)
 
@@ -18,9 +22,9 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.notification-center.title-text'),
-      		require('widget.notification-center.clear-all'),
+          dracula_icon,
+          title_text,
+      		clear_all,
     		}
     	),
     },
@@ -49,7 +53,7 @@ local notification_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.notification-center.notifications-panel'),
+          notifications_panel,
 
     		}
     	),

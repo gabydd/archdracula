@@ -6,6 +6,13 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.bluetooth-center.title-text')
+local power_button = require('widget.bluetooth-center.power-button')
+local devices_button = require('widget.bluetooth-center.devices-button')
+local search_button = require('widget.bluetooth-center.search-button')
+local bluetooth_devices_text = require('widget.bluetooth-center.devices-text')
+local bluetooth_devices_panel = require('widget.bluetooth-center.devices-panel')
 
 local width = dpi(410)
 
@@ -18,8 +25,8 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.bluetooth-center.title-text'),
+          dracula_icon,
+          title_text,
     		}
     	),
     },
@@ -48,9 +55,9 @@ local buttons = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.bluetooth-center.power-button'),
-          require('widget.bluetooth-center.devices-button'),
-          require('widget.bluetooth-center.search-button'),
+          power_button,
+          devices_button,
+          search_button,
     		}
     	),
     },
@@ -78,7 +85,7 @@ local devices_text = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-                require('widget.bluetooth-center.devices-text'),
+                bluetooth_devices_text,
     		}
     	),
     },
@@ -107,7 +114,7 @@ local devices_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.bluetooth-center.devices-panel'),
+          bluetooth_devices_panel,
     		}
     	),
     },

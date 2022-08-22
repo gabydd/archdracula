@@ -86,7 +86,7 @@ entry {
 }
 
 #element.selected {
-  background-color: @background-focus;
+  background-color: @purple-faded;
   text-color: @purple;
   border-color: @purple;
   border-radius: 10px;

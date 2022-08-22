@@ -9,6 +9,19 @@ local watch = require('awful.widget.watch')
 
 local box = {}
 
+local widget_icon = wibox.widget {
+	layout = wibox.layout.align.vertical,
+	expand = 'none',
+	nil,
+	{
+		id = 'icon',
+		image = icons.volume,
+		resize = true,
+		widget = wibox.widget.imagebox
+	},
+	nil
+}
+
 local muteIcon = wibox.widget {
   layout = wibox.layout.align.vertical,
   expand = 'none',

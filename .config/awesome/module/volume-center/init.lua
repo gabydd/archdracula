@@ -6,6 +6,11 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.volume-center.title-text')
+local volume_slider = require('widget.volume-center.volume-slider')
+local devices_text = require('widget.volume-center.devices-text')
+local volume_devices_panel = require('widget.volume-center.devices-panel')
 
 local width = dpi(410)
 
@@ -18,8 +23,8 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.volume-center.title-text'),
+          dracula_icon,
+          title_text,
     		}
     	),
     },
@@ -48,7 +53,7 @@ local sliders = wibox.widget {
     		{
     			layout = wibox.layout.fixed.vertical,
     			spacing = dpi(10),
-          require('widget.volume-center.volume-slider'),
+          volume_slider,
     		}
     	),
     },
@@ -76,7 +81,7 @@ local devices_text = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-            require('widget.volume-center.devices-text'),
+            devices_text,
     		}
     	),
     },
@@ -105,7 +110,7 @@ local devices_panel = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.volume-center.devices-panel'),
+          volume_devices_panel,
     		}
     	),
     },

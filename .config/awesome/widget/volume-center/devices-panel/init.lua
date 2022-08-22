@@ -31,37 +31,41 @@ awesome.connect_signal(
   function()
     resetDevicePanelLayout()
     awful.spawn.with_line_callback(
-      [[bash -c "pactl list sinks | grep -E 'Description|Sink' | sed 's/Description: //g; N; s/\n//; s/\t//; s/Sink #//; s/Description://'"]],
+      [[bash -c "pactl list sinks short | egrep -o '^[0-9]+'"]],
       {
         stdout = function(line)
           awful.spawn.easy_async_with_shell(
-            "pactl list sinks | grep -E 'Sink|Name' | sed 's/Description: //g; N; s/\\n//; s/\\t//g; s/Name://' | grep 'Sink #"..line:sub(1,1).."' | sed 's/Sink #"..line:sub(1,1).." //'",
-            function(stdout)
-              local name = stdout:gsub("\n","")
+          [[ bash -c "pactl list sinks | egrep '^Sink|Description' | grep -A 1 ]] .. line .. [[ | grep Description | sed -E 's/(^\\s+Description: )(.+)/\2/'"]],
+            function(title)
+              awful.spawn.easy_async_with_shell(
+              [[bash -c "pactl list sinks short | grep " .. line .. " | rg -o '(^[0-9]+\\s+)([^\\s]+)(.+)' -r '$2'"]],
+              function (name)
               awful.spawn.easy_async_with_shell(
                 [[bash -c "pactl get-default-sink"]],
                 function(stdout)
                   if name == stdout:gsub('\n','') then
                     volumeDevicesAdded(
                       {
-                        title = line:sub(3), 
-                        sinkNumText = "Sink "..line:sub(1,1), 
-                        sinkNum = line:sub(1,1), 
+                        title = title,
+                        sinkNumText = "Sink "..line,
+                        sinkNum = line,
                         isDefault = true
                       }
                     )
                   else
                     volumeDevicesAdded(
                       {
-                        title = line:sub(3), 
-                        sinkNumText = "Sink "..line:sub(1,1), 
-                        sinkNum = line:sub(1,1), 
+                        title = title,
+                        sinkNumText = "Sink "..line,
+                        sinkNum = line,
                         isDefault = false
                       }
                     )
                   end
                 end
               )
+            end
+            )
             end
           )
         end

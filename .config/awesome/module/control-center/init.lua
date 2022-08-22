@@ -12,6 +12,21 @@ local colors = require('themes').colors
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 local format_item = require('library.format_item')
+local ram_meter = require('widget.control-center.ram-meter')
+local cpu_meter = require('widget.control-center.cpu-meter')
+local hdd_meter = require('widget.control-center.hdd-meter')
+local batt_meter = require('widget.control-center.battery-meter')
+local volume_slider = require('widget.control-center.volume-slider')
+local brightness_slider = require('widget.control-center.brightness-slider')
+local bar_button = require('widget.control-center.bar-button')
+local dnd = require('widget.control-center.do-not-disturb')
+local vpn_button = require('widget.control-center.vpn-button')
+local screen_capture = require('widget.control-center.screen-capture')
+local mute_button = require('widget.control-center.mute-button')
+local restart_awesome = require('widget.control-center.restart-awesome')
+local dracula_icon = require('widget.dracula-icon')
+local title_text = require('widget.control-center.title-text')
+
 
 local dials = wibox.widget {
   {
@@ -22,16 +37,16 @@ local dials = wibox.widget {
     		{
     			layout = wibox.layout.fixed.vertical,
     			spacing = dpi(10),
-          require('widget.control-center.ram-meter'),
-          require('widget.control-center.cpu-meter'),
+          ram_meter,
+          cpu_meter,
     		}
     	),
       format_item(
     		{
     			layout = wibox.layout.fixed.vertical,
     			spacing = dpi(10),
-          require('widget.control-center.hdd-meter'),
-          require('widget.control-center.battery-meter'),
+          hdd_meter,
+          batt_meter,
     		}
     	),
     },
@@ -59,8 +74,8 @@ local sliders = wibox.widget {
     		{
     			layout = wibox.layout.fixed.vertical,
     			spacing = dpi(10),
-          require('widget.control-center.volume-slider'),
-          require('widget.control-center.brightness-slider'),
+          volume_slider,
+          brightness_slider,
     		}
     	),
     },
@@ -88,12 +103,12 @@ local buttons = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.control-center.bar-button'),
-          require('widget.control-center.do-not-disturb'),
-          require('widget.control-center.vpn-button'),
-          require('widget.control-center.screen-capture'),
-          require('widget.control-center.mute-button'),
-          require('widget.control-center.restart-awesome'),
+          bar_button,
+          dnd,
+          vpn_button,
+          screen_capture,
+          mute_button,
+          restart_awesome
     		}
     	),
     },
@@ -121,8 +136,8 @@ local title = wibox.widget {
     		{
     			layout = wibox.layout.fixed.horizontal,
     			spacing = dpi(16),
-          require('widget.dracula-icon'),
-          require('widget.control-center.title-text'),
+          dracula_icon,
+          title_text,
     		}
     	),
     },

@@ -16,7 +16,8 @@ local naughty = require('naughty')
 
 local clear = {}
 
-local widget.create = function()
+local widget = {}
+widget.create = function()
 
 	local widget_icon = wibox.widget {
 		layout = wibox.layout.align.vertical,
